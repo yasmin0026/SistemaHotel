@@ -2,9 +2,8 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col s1"></div>
 
-    <div id="man" class="col s9">
+    <div id="man">
       <div class="card material-table">
         <div class="table-header" style="height: 100px;">
           <span class="table-title">Recepcion</span>
@@ -24,44 +23,44 @@
                 <?php endforeach; ?>
               </select>
               <br>
-              <button type="submit" class="waves-effect waves-light btn" >Buscar datos<i class="material-icons right">search</i></button>
-                
-              </form>
-
-            </div>
-            <!-- Fin acciones -->
-            
-
+              <button type="submit" class="waves-effect waves-light btn btnDynamic" >Buscar datos<i class="material-icons right">search</i></button>
+              
+            </form>
 
           </div>
-          <table id="datatable" class="responsive">
-            <thead>
-              <tr>
-                <th>Nombre Habitacion</th>
-                <th>Estado Habitacion</th>
-                <th>Tipo de Habitacion</th>
-                <th>Nivel</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="result">
+          <!-- Fin acciones -->
+          
 
-            </tbody>
 
-          </table>
         </div>
+        <table id="datatable" class="responsive">
+          <thead>
+            <tr>
+              <th>Nombre Habitacion</th>
+              <th>Estado Habitacion</th>
+              <th>Tipo de Habitacion</th>
+              <th>Nivel</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="result">
+
+          </tbody>
+
+        </table>
       </div>
-      <script>
-        $(document).ready(function() {
-          $("#formFiltro").submit(function(e) {
-            e.preventDefault();
-            var id = $("#selectFiltro").val();
+    </div>
+    <script>
+      $(document).ready(function() {
+        $("#formFiltro").submit(function(e) {
+          e.preventDefault();
+          var id = $("#selectFiltro").val();
       //console.log(id);
       var url = "<?= site_url('RecepcionController/filtroNivel/');?>"+ id;
       $("#result").load(url);
     });
-        });
-      </script>
-    </div>
+      });
+    </script>
   </div>
+</div>
 

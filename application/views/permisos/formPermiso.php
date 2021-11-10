@@ -24,10 +24,10 @@ if (isset($update)) {
 			<form  action="<?= base_url() . 'PermisosController/' . $action; ?>" method="post">
 				<div class="card">
 					<div class="card-content blue-text">
-						<span class="card-title center"><?=$card_title;?></span>
+						<span class="card-title center lb"><?=$card_title;?></span>
 						<?=$id; ?>
 						<br>
-						<label class="form-label">Seleccione el rol</label>
+						<label class="form-label lb">Seleccione el rol</label>
 						<select name="id_rol" required>
 							<option  class="option" required >-- Seleccione un rol --</option>
 							<?php foreach ($rol as $r): ?>
@@ -39,7 +39,7 @@ if (isset($update)) {
 							<?php endforeach; ?>
 						</select>
 						<br>
-						<label class="form-label">Seleccione el modulo</label>
+						<label class="form-label lb">Seleccione el modulo</label>
 						<select name="id_modulo" required>
 							<option  class="option" required >-- Seleccione un modulo --</option>
 							<?php foreach ($modulo as $m): ?>
@@ -54,7 +54,7 @@ if (isset($update)) {
 					</div>
 				</div>
 				<div class="card-action">
-					<button class="btn waves-effect waves-light green accent-3" type="submit">Guardar</button>
+					<button class="btn waves-effect waves-light btnDynamic" type="submit">Guardar</button>
 					<a href="<?=base_url().'PermisosController/';?>" class="btn red">Mostrar</a>
 				</div>
 			</div>

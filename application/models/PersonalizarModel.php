@@ -20,7 +20,12 @@ class PersonalizarModel extends CI_Model
 
 	}
 
+	public function getSistemaOnlyRow(){
 
+		$allPagina = $this->db->get('tbl_personalizar');
+		return $allPagina->row();
+
+	}
 
 	public function updateAppearance($data,$id)
 	{
@@ -31,7 +36,5 @@ class PersonalizarModel extends CI_Model
 			return false;
 	}
 
-
-} 
-
+}
 ?>

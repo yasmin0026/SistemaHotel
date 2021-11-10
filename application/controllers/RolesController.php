@@ -48,7 +48,10 @@ class RolesController extends CI_Controller {
 
     public function insertRol(){
         $datos = array(
-            'nombre_rol' => $this->input->post('nombre_rol')
+            'nombre_rol' => $this->input->post('nombre_rol'),
+            'crear' => $this->input->post('crear'),
+            'actualizar' => $this->input->post('actualizar'),
+            'eliminar' => $this->input->post('eliminar')
         );
         $this->Roles->insertRol($datos);
         $this->index();
@@ -79,12 +82,15 @@ class RolesController extends CI_Controller {
     public function updateRol(){
         $datos = array(
             'id_rol'  => $this->input->post('id_rol'),
-            'nombre_rol' => $this->input->post('nombre_rol')
+            'nombre_rol' => $this->input->post('nombre_rol'),
+            'crear' => $this->input->post('crear'),
+            'actualizar' => $this->input->post('actualizar'),
+            'eliminar' => $this->input->post('eliminar')
         );
 
         $this->Roles->updateRol($datos);
         $this->index();
-        $this->session->set_flashdata('update','¡Registro modificado con exito! '.$datos['estado_habitacion']);
+        $this->session->set_flashdata('update','¡Registro modificado con exito! '.$datos['nombre_rol']);
         redirect('RolesController/');
     }
 

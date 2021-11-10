@@ -19,19 +19,19 @@ if (isset($actualizar)) {
 		<div class="col s12 m6 l6">
 			<form  action="<?= base_url() . 'EstadoController/' . $action; ?>" method="post">
 				<div class="card">
-					<div class="card-content blue-text">
+					<div class="card-content lb">
 						<span class="card-title center"><?=$card_title;?></span>
 						<?=$id; ?>
 						<br>
 
 						<div class="input-field">
 							<input id="estado_habitacion" type="text" name="estado_habitacion" value="<?=$estado;?>">
-							<label for="estado_habitacion">Estado de la habitacion</label>
+							<label for="estado_habitacion" class="lb">Estado de la habitacion</label>
 						</div>
 
 					</div>
 					<div class="card-action">
-						<button class="btn waves-effect waves-light green accent-3" type="submit">Guardar</button>
+						<button class="btn waves-effect waves-light btnDynamic" type="submit">Guardar</button>
 						<a href="<?=base_url().'EstadoController/';?>" class="btn red">Mostrar</a>
 					</div>
 				</div>

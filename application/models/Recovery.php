@@ -1,27 +1,22 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuarios extends CI_Model{
+class Recovery extends CI_Model{
 
-    public function getUsuarios(){
-        $this->db->join('tbl_rol','tbl_rol.id_rol = tbl_usuario.id_rol');
-         $query = $this->db->get('tbl_usuario');
-        return $query->result();
+    public function getUsuarioByNick($nick)
+    {
+        $this->db->where("nick_usuario = '".$nick."'");
+        $query = $this->db->get('tbl_usuario');
+        return $query->row();
     }
 
-    public function insertUsuario($datos){
-        if($this->db->insert('tbl_usuario',$datos))
-            return true;
-        else
-            return false;
-    }
-
-    public function getUsuario($id_usuario){
-        $this->db->select('*');
-        $this->db->from('tbl_usuario');
-        $this->db->join("tbl_rol", "tbl_rol.id_rol = tbl_usuario.id_rol");
-        $this->db->where('id_usuario', $id_usuario);
-        $query = $this->db->get();
+    public function getUsuarioByIdNick($id,$nick,$pregunta,$respuesta)
+    {
+        $this->db->where("nick_usuario = '".$nick."'");
+        $this->db->where("recovery_pregunta = '".$pregunta."'");
+        $this->db->where("recovery_respuesta = '".$respuesta."'");
+        $this->db->where("id_usuario = '".$id."'");
+        $query = $this->db->get('tbl_usuario');
         return $query->row();
     }
 
@@ -47,6 +42,4 @@ class Usuarios extends CI_Model{
         else
             return false;
     }
-    
 }
-?>

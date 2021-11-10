@@ -5,7 +5,7 @@
 		
 		<form  action="<?= base_url()?>RecepcionController/insertAlojamiento_Cliente" method="post">
 			<div class="card col s12 m6">
-				<div class="card-content blue-text">
+				<div class="card-content lb">
 					<span class="card-title center">Datos de Alojamiento</span>
 
 					<br>
@@ -73,33 +73,33 @@
 
 
 
-	<div class="col s12 m6">
-		<div class="card">
-			<div class="card-content blue-text">
-				<span class="card-title center">Datos Personales</span>
+		<div class="col s12 m6">
+			<div class="card">
+				<div class="card-content lb">
+					<span class="card-title center">Datos Personales</span>
 
-				<br>
+					<br>
 
-				<div class="input-field">
-					<input id="nombres_cliente" type="text" name="nombres_cliente" >
-					<label for="nombres_cliente">Nombre Completo</label>
+					<div class="input-field">
+						<input id="nombres_cliente" type="text" name="nombres_cliente" >
+						<label for="nombres_cliente">Nombre Completo</label>
+					</div>
+
+					<div class="input-field">
+						<select name="id_tipo_documento" class="form-control col-md-3" >
+							<option>Seleccione</option>
+
+							<?php foreach ($documento as $k): ?>
+
+								<option value="<?php echo $k->id_tipo_documento ;?>"><?php echo $k->tipo_documento ;?>
+							</option>
+
+						<?php endforeach; ?>
+
+					</select>
+
+					<label for="id_tipo_documento">Tipo deDocumento</label>
 				</div>
-
-				<div class="input-field">
-					<select name="id_tipo_documento" class="form-control col-md-3" >
-						<option>Seleccione</option>
-
-						<?php foreach ($documento as $k): ?>
-
-							<option value="<?php echo $k->id_tipo_documento ;?>"><?php echo $k->tipo_documento ;?>
-						</option>
-
-					<?php endforeach; ?>
-
-				</select>
-
-				<label for="id_tipo_documento">Tipo deDocumento</label>
-			</div>
 
 				<div class="input-field">
 					<input id="documento" type="text" name="documento" value="">
@@ -114,12 +114,12 @@
 
 			</div>
 			<div class="card-action" >
-				<button class="btn waves-effect waves-light green accent-3" type="submit">Alojar</button>
+				<button class="btn waves-effect waves-light btnDynamic" type="submit">Alojar</button>
 				<a href="<?=base_url().'RecepcionController/';?>" class="btn red">Mostrar</a>
 			</div>
 		</div>
 	</div>
-	</form>
+</form>
 </div>
 </div>
 

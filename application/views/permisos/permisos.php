@@ -2,16 +2,16 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col s1"></div>
+    <div class=""></div>
 
-    <div id="man" class="col s9">
+    <div id="man" class="">
       <div class="card material-table">
         <div class="table-header">
-          <span class="table-title">Permisos de rol</span>
+          <span class="table-title lb">Permisos de rol</span>
           <!-- Acciones -->
           <div class="actions">
             <!-- Button de agregar -->
-            <a href="<?=base_url().'PermisosController/nuevoPermiso';?>" class="waves-effect btn-flat rounded green accent-3 tooltipped" data-position="left" data-tooltip="Agregar registro"><i class="material-icons">add</i></a>
+            <a href="<?=base_url().'PermisosController/nuevoPermiso';?>" class="waves-effect btn-flat rounded aDynamic tooltipped" data-position="left" data-tooltip="Agregar registro"><i class="material-icons white-text">add</i></a>
             <!-- Busqueda -->
             <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
           </div>
@@ -41,8 +41,8 @@
                 <td><?=$m->actualizar;?></td>
                 <td><?=$m->eliminar;?></td>
                 <td>
-                  <a href="<?=base_url().'PermisosController/editarPermiso/'.$m->id_menu;?>"><i class="material-icons blue-text">create</i></a>
-                  <a href="<?=base_url().'PermisosController/deletePermiso/'.$m->id_menu;?>"><i class="material-icons red-text">delete_forever</i></a>
+                  <a class="btnEdit" href="<?=base_url().'PermisosController/editarPermiso/'.$m->id_menu;?>"><i class="material-icons dynamic">create</i></a>
+                  <a class="btnDel" href="<?=base_url().'PermisosController/deletePermiso/'.$m->id_menu;?>"><i class="material-icons red-text">delete_forever</i></a>
                 </td>
               </tr>
             <?php endforeach ?>

@@ -9,7 +9,6 @@ class LoginController extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('LoginModel');
-		$this->load->model('ReservacionModel');
 		$this->load->model('PersonalizarModel');
 		$this->load->model('PermisosModel');
 		$this->load->library('form_validation');
@@ -38,12 +37,6 @@ class LoginController extends CI_Controller {
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
 
-			$data['habi'] = $this->ReservacionModel->selecHab();
-		//select estado de pago
-			$data['pago'] = $this->ReservacionModel->selecPago();
-		//select estado de reserva
-			$data['esR'] = $this->ReservacionModel->selecEstadoR();
-
 			$this->load->view('template/main',$data);
 		}else{
 			$this->load->view('login');
@@ -65,22 +58,25 @@ class LoginController extends CI_Controller {
 			$usuario = $data['nick_usuario'];
 			$contraseña = $data['contrasena_usuario'];
 			$id_rol = $data['id_rol'];
+			$crear = $data['crear'];
+			$actualizar = $data['actualizar'];
+			$eliminar = $data['eliminar'];
 
 			$session_data = array(
 				'id_usuario' => $id_usuario,
 				'nick_usuario' => $usuario,
 				'contrasena_usuario' => $contraseña,
 				'id_rol' => $id_rol,
+				'crear' => $crear,
+				'actualizar' => $actualizar,
+				'eliminar' => $eliminar, 
 				'is_logued_in' => TRUE 
-
 			);
 
 			$this->session->set_userdata($session_data);
 			if ($id_rol === '1' ) {
 				redirect('LoginController/inicio');
-			}elseif($id_rol === '2'){
-				redirect('LoginController/inicio');
-			}elseif ($id_rol === '3') {
+			}elseif($id_rol != '1'){
 				redirect('LoginController/inicio');
 			}
 

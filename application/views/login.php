@@ -82,7 +82,7 @@
 								<input  name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Entrar">
 								
 							</form>
-							<a href="#!" class="forgot-password">¿Olvidaste tu contraseña?</a>
+							<a href="<?= base_url().'RecoveryController/';?>" class="forgot-password">¿Olvidaste tu contraseña?</a>
 						</div>
 					</div>
 				</div>

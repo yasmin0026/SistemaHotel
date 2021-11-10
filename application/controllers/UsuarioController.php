@@ -68,6 +68,8 @@ class UsuarioController extends CI_Controller {
 			'apellido_usuario' => $this->input->post('apellido_usuario'),
 			'nick_usuario' => $this->input->post('nick_usuario'),
 			'contrasena_usuario' => $this->input->post('contrasena_usuario'),
+			'recovery_pregunta' => base64_encode($this->input->post('recovery_pregunta')),
+            'recovery_respuesta' => base64_encode($this->input->post('recovery_respuesta')),
 			'id_rol' => $this->input->post('id_rol'),
 		);
 		$this->Usuarios->insertUsuario($datos);
@@ -105,6 +107,8 @@ class UsuarioController extends CI_Controller {
 			'apellido_usuario' => $this->input->post('apellido_usuario'),
 			'nick_usuario' => $this->input->post('nick_usuario'),
 			'contrasena_usuario' => $this->input->post('contrasena_usuario'),
+			'recovery_pregunta' => base64_encode($this->input->post('recovery_pregunta')),
+            'recovery_respuesta' => base64_encode($this->input->post('recovery_respuesta')),
 			'id_rol' => $this->input->post('id_rol'),
 		);
 		$this->Usuarios->updateUsuario($datos);
