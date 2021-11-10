@@ -11,6 +11,7 @@ class LoginController extends CI_Controller {
 		$this->load->model('LoginModel');
 		$this->load->model('PersonalizarModel');
 		$this->load->model('PermisosModel');
+		$this->load->model('ReservacionModel');
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 		
@@ -36,6 +37,12 @@ class LoginController extends CI_Controller {
 			);
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
+
+			$data['habi'] = $this->ReservacionModel->selecHab();
+		
+			$data['pago'] = $this->ReservacionModel->selecPago();
+		
+			$data['esR'] = $this->ReservacionModel->selecEstadoR();
 
 			$this->load->view('template/main',$data);
 		}else{

@@ -21,6 +21,7 @@ class ReservacionController extends CI_Controller {
 			);
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
+
 			$data['habi'] = $this->ReservacionModel->selecHab();
 		//select estado de pago
 			$data['pago'] = $this->ReservacionModel->selecPago();
@@ -57,9 +58,10 @@ class ReservacionController extends CI_Controller {
 
 	 $this->ReservacionModel->insert_Reserv($data);
 	 $this->index();
+	 
 	}	
 		
-
+redirect('ReservacionController/');
 	}
 
 	public function UpdateReserv(){
