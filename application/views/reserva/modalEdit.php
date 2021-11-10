@@ -84,7 +84,7 @@
             <div class="input-field col s12">
               <select id="txid_estado_reserva" name="id_estado_reserva">
                 <option>Seleccionar-</option>
-                <?php foreach ($esR as $p): ?>
+                <?php foreach ($esR as $p): ?> 
 
                   <option value="<?php echo $p->id_estado_reserva; ?>">
                     <?php echo $p->estado_reserva; ?>

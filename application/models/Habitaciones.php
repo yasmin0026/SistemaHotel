@@ -33,7 +33,7 @@ class Habitaciones extends CI_Model{
         $this->db->set('id_tipo_estado', $datos['id_tipo_estado']);
         $this->db->set('precio_habitacion', $datos['precio_habitacion']);
         $this->db->set('detalle_habitacion', $datos['detalle_habitacion']);
-        $this->db->set('id_habitacion', $datos['id_habitacion']);
+        $this->db->where('id_habitacion', $datos['id_habitacion']);
     if($this->db->update('tbl_habitacion'))
         return true;
     else    

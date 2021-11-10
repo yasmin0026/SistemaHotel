@@ -5,9 +5,9 @@ class HabitacionesController extends CI_CONTROLLER{
 
     public function __construct(){
         parent::__construct();
-		$this->load->model('PersonalizarModel');
+        $this->load->model('PersonalizarModel');
         $this->load->model('PermisosModel');
-		$this->load->model('Habitaciones');
+        $this->load->model('Habitaciones');
         $this->load->model('Categorias');
         $this->load->model('Niveles');
         $this->load->model('Estados');
@@ -75,14 +75,14 @@ class HabitacionesController extends CI_CONTROLLER{
 
     public function insertHabitacion(){
         $datos = array(
-           'nombre_habitacion' => $this->input->post('nombre_habitacion'),
-            	'id_categoria' => $this->input->post('id_categoria'),
-                    'id_nivel' => $this->input->post('id_nivel'),
-                    	'id_tipo_estado' => $this->input->post('id_tipo_estado'),
-                        	'precio_habitacion' => $this->input->post('precio_habitacion'),
-                            	'detalle_habitacion' => $this->input->post('detalle_habitacion')
+         'nombre_habitacion' => $this->input->post('nombre_habitacion'),
+         'id_categoria' => $this->input->post('id_categoria'),
+         'id_nivel' => $this->input->post('id_nivel'),
+         'id_tipo_estado' => $this->input->post('id_tipo_estado'),
+         'precio_habitacion' => $this->input->post('precio_habitacion'),
+         'detalle_habitacion' => $this->input->post('detalle_habitacion')
 
-        );
+     );
         $this->Habitaciones->insertHabitacion($datos);
         $this->index();
         $this->session->set_flashdata('insert', '¡Registro insertado con exito!');
@@ -120,13 +120,13 @@ class HabitacionesController extends CI_CONTROLLER{
 
     public function updateHabitacion(){
         $datos = array(
-        'id_habitacion' => $this->input->post('id_habitacion'),
             'nombre_habitacion' => $this->input->post('nombre_habitacion'),
-                 'id_categoria' => $this->input->post('id_categoria'),
-                     'id_nivel' => $this->input->post('id_nivel'),
-                          'id_tipo_estado' => $this->input->post('id_tipo_estado'),
-                             'precio_habitacion' => $this->input->post('precio_habitacion'),
-                                'detalle_habitacion' => $this->input->post('detalle_habitacion')
+            'id_categoria' => $this->input->post('id_categoria'),
+            'id_nivel' => $this->input->post('id_nivel'),
+            'id_tipo_estado' => $this->input->post('id_tipo_estado'),
+            'precio_habitacion' => $this->input->post('precio_habitacion'),
+            'detalle_habitacion' => $this->input->post('detalle_habitacion'),
+            'id_habitacion' => $this->input->post('id_habitacion')
         );
 
         $this->Habitaciones->updateHabitacion($datos);
