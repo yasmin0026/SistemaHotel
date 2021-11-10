@@ -43,6 +43,22 @@ class PermisosModel extends CI_Model{
         return $query->result();
     }
 
+
+     public function getModulos3($id_usuario){
+        $query = $this->db->query("SELECT U.id_usuario,
+            U.nick_usuario,
+            MO.id_modulo,
+            MO.nombre_modulo,
+            MO.url_modulo
+            FROM menu_rol_modulo M, tbl_modulos MO, tbl_rol R, tbl_usuario U
+            where U.id_rol = R.id_rol
+            and M.id_modulo = MO.id_modulo
+            and M.id_rol = R.id_rol
+            and U.id_usuario = '$id_usuario'
+            and MO.tipo = '3';");
+        return $query->result();
+    }
+
     public function getRol()
     {
         $query = $this->db->get('tbl_rol');
@@ -77,9 +93,7 @@ class PermisosModel extends CI_Model{
 
     public function updatePermiso($datos)
     {   
-        $this->db->set('eliminar',$datos['eliminar']);
-        $this->db->set('actualizar',$datos['actualizar']);
-        $this->db->set('crear',$datos['crear']);
+        
         $this->db->set('id_modulo',$datos['id_modulo']);
         $this->db->set('id_rol',$datos['id_rol']);
         $this->db->where('id_menu',$datos['id_menu']);
