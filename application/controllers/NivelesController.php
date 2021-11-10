@@ -7,6 +7,7 @@ class NivelesController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('PersonalizarModel');
 		$this->load->model('Niveles');
+		$this->load->model('PermisosModel');
 	}
 
 	public function index()

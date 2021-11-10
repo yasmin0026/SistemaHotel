@@ -9,6 +9,7 @@ class PersonalizarPage extends CI_Controller {
 		parent::__construct();
 		$this->load->model('PersonalizarModel');
 		$this->load->library('upload');
+		$this->load->model('PermisosModel');
 	}
 
 	public function index()

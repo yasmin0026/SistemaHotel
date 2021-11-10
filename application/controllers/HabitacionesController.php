@@ -6,6 +6,7 @@ class HabitacionesController extends CI_CONTROLLER{
     public function __construct(){
         parent::__construct();
 		$this->load->model('PersonalizarModel');
+        $this->load->model('PermisosModel');
 		$this->load->model('Habitaciones');
         $this->load->model('Categorias');
         $this->load->model('Niveles');

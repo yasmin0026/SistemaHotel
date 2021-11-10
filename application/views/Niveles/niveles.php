@@ -7,7 +7,7 @@
     <div id="man" class="col s9">
       <div class="card material-table">
         <div class="table-header">
-          <span class="table-title">Lista de niveles</span>
+          <span class="table-title">Ubicación</span>
           <!-- Acciones -->
           <div class="actions">
             <!-- Button de agregar -->
@@ -21,7 +21,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre del nivel</th>
+              <th>Ubicación</th>
               <th>Acciones</th>
             </tr>
           </thead>

@@ -5,7 +5,7 @@ class Usuarios extends CI_Model{
 
     public function getUsuarios(){
         $this->db->join('tbl_rol','tbl_rol.id_rol = tbl_usuario.id_rol');
-         $query = $this->db->get('tbl_usuario');
+        $query = $this->db->get('tbl_usuario');
         return $query->result();
     }
 
@@ -31,10 +31,10 @@ class Usuarios extends CI_Model{
         $this->db->set('contrasena_usuario', $datos['contrasena_usuario']);
         $this->db->set('id_rol', $datos['id_rol']);
         $this->db->set('id_usuario', $datos['id_usuario']);
-    if($this->db->update('tbl_usuario'))
-        return true;
-    else    
-        return false;
+        if($this->db->update('tbl_usuario'))
+            return true;
+        else    
+            return false;
     }
 
     public function deleteUsuario($id_usuario){

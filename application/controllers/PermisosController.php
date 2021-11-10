@@ -1,79 +1,87 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CategoriasController extends CI_Controller {
+class PermisosController extends CI_Controller {
 
+	
 	public function __construct(){
+
 		parent::__construct();
 		$this->load->model('PersonalizarModel');
-		$this->load->model('Categorias');
+		$this->load->model('PermisosModel');
 		$this->load->model('PermisosModel');
 	}
 
 	public function index()
-	{
+	{	
+
 		if ($this->session->userdata('is_logued_in') === TRUE) {	
 			$data = array(
 				'page_title' => 'Sistema Hotelero',
-				'view' => 'Categorias/categorias',
+				'view' => 'permisos/permisos',
 				'data_view' => array()
 			);
 
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
 
-			$data['categorias'] = $this->Categorias->getCategorias();
-
+			$data['menu'] = $this->PermisosModel->getMenu();
 			$this->load->view('template/main',$data);
 		}else{
 			$this->load->view('login');
 		}
+
 	}
 
-	public function new()
-	{
-		if ($this->session->userdata('is_logued_in') === TRUE) {	
+ 
+	public function nuevoPermiso(){
+		if($this->session->userdata('is_logued_in') === TRUE){
 			$data = array(
 				'page_title' => 'Sistema Hotelero',
-				'view' => 'Categorias/dynamic-categoria',
+				'view' => 'permisos/formPermiso',
 				'data_view' => array()
 			);
-
 			$allPagina = $this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
 
+			$data['menu'] = $this->PermisosModel->getMenu();
+
+			$data['rol'] = $this->PermisosModel->getRol();
+			$data['modulo'] = $this->PermisosModel->getModuloOp();
 			$this->load->view('template/main',$data);
 		}else{
 			$this->load->view('login');
 		}
 	}
 
-	public function insert()
-	{
+	
+	public function insertPermiso(){
 		$datos = array(
-			'tipo_habitacion' => $this->input->post('tipo_habitacion')
+			'id_rol' => $this->input->post('id_rol'),
+			'id_modulo' => $this->input->post('id_modulo'),
 		);
 
-		$this->Categorias->insert($datos);
+		$this->PermisosModel->insertPermiso($datos);
 		$this->index();
 		$this->session->set_flashdata('insert','¡Registro insertado con exito!');
-		redirect('CategoriasController/');
+		redirect('PermisosController/');
 	}
 
-
-	public function edit($id_categoria)
+	public function editarPermiso($id_menu)
 	{
 		if ($this->session->userdata('is_logued_in') === TRUE) {	
 			$data = array(
 				'page_title' => 'Sistema Hotelero',
-				'view' => 'Categorias/dynamic-categoria',
+				'view' => 'permisos/formPermiso',
 				'data_view' => array()
 			);
 
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
 
-			$data['actualizar'] = $this->Categorias->getCategoria($id_categoria);
+			$data['rol'] = $this->PermisosModel->getRol();
+			$data['modulo'] = $this->PermisosModel->getModuloOp();
+			$data['update'] = $this->PermisosModel->getMenuAll($id_menu);
 
 			$this->load->view('template/main',$data);
 		}else{
@@ -81,24 +89,28 @@ class CategoriasController extends CI_Controller {
 		}
 	}
 
-	public function update()
+	public function updatePermiso()
 	{
 		$datos = array(
-			'id_categoria' => $this->input->post('id_categoria'),
-			'tipo_habitacion' => $this->input->post('tipo_habitacion')
+			'id_rol' => $this->input->post('id_rol'),
+			'id_modulo' => $this->input->post('id_modulo'),
+			'id_menu' => $this->input->post('id_menu')
 		);
 
-		$this->Categorias->update($datos);
+		$this->PermisosModel->updatePermiso($datos);
 		$this->index();
-		$this->session->set_flashdata('update','¡Registro modificado con exito! '.$datos['tipo_habitacion']);
-		redirect('CategoriasController/');
+		$this->session->set_flashdata('update','¡Registro modificado con exito! ');
+		redirect('PermisosController/');
 	}
 
-	public function delete($id_categoria)
+	public function deletePermiso($id_menu)
 	{
-		$this->Categorias->delete($id_categoria);
+		$this->PermisosModel->deletePermiso($id_menu);
 		$this->session->set_flashdata('delete','¡Registro fue borrado!');
 		$this->index();
-		redirect('CategoriasController/');
+		redirect('PermisosController/');
 	}
+
+
+
 }

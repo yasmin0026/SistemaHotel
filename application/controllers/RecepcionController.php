@@ -8,7 +8,7 @@ class RecepcionController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('RecepcionModel');
 		$this->load->model('PersonalizarModel');
-		
+		$this->load->model('PermisosModel');
 	}
 	
 	public function index()

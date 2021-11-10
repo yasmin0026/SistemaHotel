@@ -26,7 +26,7 @@ if (isset($actualizar)) {
 
 						<div class="input-field">
 							<input id="nombre_nivel" type="text" name="nombre_nivel" value="<?=$nombre;?>">
-							<label for="nombre_nivel">Nombre del Nivel</label>
+							<label for="nombre_nivel">Ubicacion</label>
 						</div>
 
 					</div>

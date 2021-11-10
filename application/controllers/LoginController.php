@@ -11,6 +11,7 @@ class LoginController extends CI_Controller {
 		$this->load->model('LoginModel');
 		$this->load->model('ReservacionModel');
 		$this->load->model('PersonalizarModel');
+		$this->load->model('PermisosModel');
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 		
