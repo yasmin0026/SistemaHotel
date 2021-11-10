@@ -14,7 +14,7 @@
         <?php if ($this->session->userdata('id_rol') === '1') : ?>
 
          <li><a href="<?php echo base_url(); ?>LoginController/inicio">Reserva</a></li>
-         <li><a href="<?php echo base_url(); ?>">Recepción</a></li>
+         <li><a href="<?php echo base_url(); ?>RecepcionController/index">Recepción</a></li>
          <li><a href="<?php echo base_url(); ?>NivelesController/">Ubicación</a></li>
          <li><a href="<?php echo base_url(); ?>EstadoController/">Estado</a></li>
          <li><a href="<?php echo base_url(); ?>CategoriasController/">Categorias</a></li>
@@ -42,7 +42,7 @@
   <?php if($this->session->userdata('id_rol') === '1'): ?>
 
     <li><a href="<?php echo base_url(); ?>LoginController/inicio">Reserva</a></li>
-    <li><a href="<?php echo base_url(); ?>">Recepción</a></li>
+    <li><a href="<?php echo base_url(); ?>RecepcionController/index">Recepción</a></li>
     <li><a href="<?php echo base_url(); ?>NivelesController/">Ubicación</a></li>
     <li><a href="<?php echo base_url(); ?>EstadoController/">Estado</a></li>
     <li><a href="<?php echo base_url(); ?>CategoriasController/">Categorias</a></li>
