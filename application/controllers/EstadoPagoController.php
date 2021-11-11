@@ -95,9 +95,28 @@ class EstadoPagoController extends CI_Controller {
 	}
 
 	public function deleteEstadoPago($id_estado_pago){
-		$this->EstadoPagoModel->delete($id_estado_pago);
-		$this->session->set_flashdata('delete','¡Registro fue borrado!');
-		$this->index();
+
+		$data = $this->EstadoPagoModel->getEstadoPago2();
+		$info;
+		foreach($data as $d){
+			$info = $d->id_estado_pago;
+		}
+
+		if ($info === $id_estado_pago) {
+
+			$this->session->set_flashdata('delete','¡No se puede eliminar!, una reserva esta usando este estado');
+			$this->index();
+
+			redirect('EstadoPagoController/');
+
+		}else{
+			$this->EstadoPagoModel->delete($id_estado_pago);
+			$this->session->set_flashdata('delete','¡Registro fue borrado!');
+			$this->index();
+			redirect('EstadoPagoController/');	
+		}
+
+
 		redirect('EstadoPagoController/');	
 	}
 

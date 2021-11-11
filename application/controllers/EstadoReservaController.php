@@ -32,7 +32,7 @@ class EstadoReservaController extends CI_Controller {
 		}
 	}
 
-		public function addEstadoResrv(){
+	public function addEstadoResrv(){
 
 		if ($this->session->userdata('is_logued_in') === TRUE) {	
 			$data = array(
@@ -96,11 +96,24 @@ class EstadoReservaController extends CI_Controller {
 	}
 
 	public function delete($id_estado_reserva){
-		$this->EstadoReservaModel->deleteE($id_estado_reserva);
-		$this->session->set_flashdata('delete','¡Registro fue borrado!');
-		$this->index();
-		redirect('EstadoReservaController/');
+		$data = $this->EstadoReservaModel->getEstadoReserva();
+		$info;
+		foreach($data as $d){
+			$info = $d->id_estado_reserva;
+		}
 
+		if ($info === $id_estado_reserva) {
+			$this->session->set_flashdata('delete','¡No se puede eliminar!, una reserva esta usando este estado');
+			$this->index();
+		}else{
+
+			$this->EstadoReservaModel->deleteE($id_estado_reserva);
+			$this->session->set_flashdata('delete','¡Registro fue borrado!');
+			$this->index();
+			redirect('EstadoReservaController/');
+		}
+
+		redirect('EstadoReservaController/');
 	}
 
 	

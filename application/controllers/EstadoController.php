@@ -8,7 +8,7 @@ class EstadoController extends CI_Controller {
 		$this->load->model('PersonalizarModel');
 		$this->load->model('Estados');
         $this->load->model('PermisosModel');
-	}
+    }
 
     public function index(){
         if($this->session->userdata('is_logued_in') === TRUE ){
@@ -22,15 +22,15 @@ class EstadoController extends CI_Controller {
             $data['allPagina'] = $allPagina;
 
             $estados = $this->Estados->getEstados();
-			$data['estados'] = $estados;
+            $data['estados'] = $estados;
 
-			$this->load->view('template/main',$data);
-		}else{
-			$this->load->view('login');
-		}
-	}
+            $this->load->view('template/main',$data);
+        }else{
+           $this->load->view('login');
+       }
+   }
 
-public function newEstado(){
+   public function newEstado(){
     if($this->session->userdata('is_logued_in') === TRUE){
         $data = array(
             'page_title' => 'Sistema Hotelero',
@@ -88,12 +88,25 @@ public function updateEstado(){
     redirect('EstadoController/');
 }
 
-public function delete($id_tipo_estado){
-    $this->Estados->deleteEstado($id_tipo_estado);
-    $this->session->set_flashdata('delete','¡Registro fue borrado!');
-    $this->index();
-    redirect('EstadoController/');
-}
+    public function delete($id_tipo_estado){
+        $data = $this->Estados->getEstados2();
+        $info;
+        foreach($data as $d){
+            $info = $d->id_tipo_estado;
+        }
+
+        if ($info == $id_tipo_estado) {
+         $this->session->set_flashdata('delete','¡No se puede eliminar!, una habitación esta usando este estado');
+         $this->index();
+
+         redirect('EstadoController/');
+        }
+
+         $this->Estados->deleteEstado($id_tipo_estado);
+         $this->session->set_flashdata('delete','¡Registro fue borrado!');
+         $this->index();
+         redirect('EstadoController/');
+    }
 
 
 }

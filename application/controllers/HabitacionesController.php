@@ -137,9 +137,24 @@ class HabitacionesController extends CI_CONTROLLER{
     }
 
     public function delete($id_habitacion){
-        $this->Habitaciones->deleteHabitacion($id_habitacion);
-        $this->session->set_flashdata('delete','¡Registro fue borrado!');
-        $this->index();
+        $data = $this->Habitaciones->getHabitaciones2();
+        $info;
+        foreach($data as $d){
+            $info = $d->id_habitacion;
+        }
+        
+        if ($info === $id_habitacion) {
+            $this->session->set_flashdata('delete','¡No se puede eliminar!, ¡Un Registro de imprevisto esta usando esta habitacion');
+            $this->index();
+
+            redirect('HabitacionesController/');
+        }else{
+            $this->Habitaciones->deleteHabitacion($id_habitacion);
+            $this->session->set_flashdata('delete','¡Registro fue borrado!');
+            $this->index();
+
+        }
+
         redirect('HabitacionesController/');
     }
 

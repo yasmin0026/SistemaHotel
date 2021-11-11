@@ -95,10 +95,25 @@ class CategoriasController extends CI_Controller {
 	}
 
 	public function delete($id_categoria)
-	{
-		$this->Categorias->delete($id_categoria);
-		$this->session->set_flashdata('delete','¡Registro fue borrado!');
-		$this->index();
+	{	$data = $this->Categorias->getCategorias2();
+		$info;
+		foreach($data as $d){
+			$info = $d->id_categoria;
+		}
+
+		if ($info === $id_categoria) {
+			$this->session->set_flashdata('delete','¡No se puede eliminar!, una habitacion esta usando esta categoria');
+			$this->index();
+			redirect('CategoriasController/');
+		}else{
+			$this->Categorias->delete($id_categoria);
+			$this->session->set_flashdata('delete','¡Registro fue borrado!');
+			$this->index();
+			redirect('CategoriasController/');
+		}
+
+
+		
 		redirect('CategoriasController/');
-	}
+	} 
 }

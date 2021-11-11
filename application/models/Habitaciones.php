@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Habitaciones extends CI_Model{
 
+    public function getHabitaciones2(){
+        
+        $this->db->join('tbl_imprevisto','tbl_imprevisto.id_habitacion = tbl_habitacion.id_habitacion');
+        $query = $this->db->get('tbl_habitacion');
+        return $query->result();
+    }
+
     public function getHabitaciones(){
         $this->db->join('tbl_categoria','tbl_categoria.id_categoria = tbl_habitacion.id_categoria');
         $this->db->join('tbl_niveles','tbl_niveles.id_nivel = tbl_habitacion.id_nivel');

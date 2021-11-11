@@ -30,7 +30,7 @@ class DocumentoController extends CI_Controller {
 	}
 
 
- 	public function newDocumento()
+	public function newDocumento()
 	{
 		if ($this->session->userdata('is_logued_in') === TRUE) {	
 			$data = array(
@@ -96,9 +96,24 @@ class DocumentoController extends CI_Controller {
 
 	public function deleteDocumento($id_tipo_documento)
 	{
-		$this->DocumentoModel->deleteDocumento($id_tipo_documento);
-		$this->session->set_flashdata('delete','¡Registro fue borrado!');
-		$this->index();
+		$data = $this->DocumentoModel->getDocumento();
+		$info;
+		foreach($data as $d){
+			$info = $d->id_tipo_documento;
+		}
+
+		if ($info === $id_tipo_documento) {
+			$this->session->set_flashdata('delete','¡No se puede eliminar!, un cliente esta usando este tipo de documento');
+			$this->index();
+			redirect('DocumentoController/');
+			
+		}else{
+			$this->DocumentoModel->deleteDocumento($id_tipo_documento);
+			$this->session->set_flashdata('delete','¡Registro fue borrado!');
+			$this->index();
+			redirect('DocumentoController/');
+		}
+
 		redirect('DocumentoController/');
 	}
 	

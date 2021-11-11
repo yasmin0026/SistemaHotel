@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class EstadoReservaModel extends CI_Model {
 
+
+	public function getEstadoReserva(){
+		$this->db->join('tbl_reserva','tbl_reserva.id_estado_reserva = tbl_estado_reserva.id_estado_reserva');
+		$query = $this->db->get('tbl_estado_reserva');
+    return $query->result();
+	}
+
+
 	public function getEstadoReserv(){
 		$query = $this->db->get('tbl_estado_reserva');
     return $query->result();

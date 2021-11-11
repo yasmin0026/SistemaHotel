@@ -68,11 +68,12 @@
 
  <nav>
   <div class="nav-wrapper" style="background-color:<?=$p->color_sistema;?>">
-    <div class="">
-      <a href="#!" class="brand-logo"><?=$p->nombre_sistema;?></a>
+    <div >
+      <a href="#!" class="brand-logo"><?=$p->nombre_sistema;?></a> 
+      
     <?php endforeach; ?>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
+    <ul class="right hide-on-med-and-down ">
 
 
       <?php if ($this->session->userdata('id_rol') === '1') : ?>
@@ -82,6 +83,8 @@
        <li><a href="<?php echo base_url(); ?>DocumentoController/index">Tipo documento</a></li>
        <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
        <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
+
+
 
 
      <?php elseif ($this->session->userdata('id_rol') != '1') : ?>
@@ -94,6 +97,7 @@
    <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Habitaciones<i class="material-icons right">arrow_drop_down</i></a></li>
    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Configuración<i class="material-icons right">arrow_drop_down</i></a></li>
    <li><a class="dropdown-trigger" href="#!" data-target="dropdown5">Usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+   
  </ul>
 </div>
 
@@ -110,7 +114,7 @@
    <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
    <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
 
-
+   
  <?php elseif ($this->session->userdata('id_rol') != '1'): ?>
   <?php $menu = $this->PermisosModel->getModulos($this->session->userdata("id_usuario"));?>
   <?php foreach($menu as $m): ?>

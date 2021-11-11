@@ -39,29 +39,29 @@ class ReservacionController extends CI_Controller {
 
 	public function reservacion(){
 		
-		 $events = $this->ReservacionModel->allReserv();
-		 echo json_encode($events);
+		$events = $this->ReservacionModel->allReserv();
+		echo json_encode($events);
 	}
 
-		public function insertReserv(){
-	if($this->input->post('title')){
-	$data= array(
-		'id_habitacion'  => $this->input->post('id_habitacion'),
-		'title'  => $this->input->post('title'),
-		'color'  => $this->input->post('color'),
-		'start'  => $this->input->post('start'),
-		'end'  => $this->input->post('end'),
-		'id_estado_reserva'  => $this->input->post('id_estado_reserva'),
-		'nombre_cliente'  => $this->input->post('nombre_cliente'),
-		'id_estado_pago'  => $this->input->post('id_estado_pago'),
-	);
+	public function insertReserv(){
+		if($this->input->post('title')){
+			$data= array(
+				'id_habitacion'  => $this->input->post('id_habitacion'),
+				'title'  => $this->input->post('title'),
+				'color'  => $this->input->post('color'),
+				'start'  => $this->input->post('start'),
+				'end'  => $this->input->post('end'),
+				'id_estado_reserva'  => $this->input->post('id_estado_reserva'),
+				'nombre_cliente'  => $this->input->post('nombre_cliente'),
+				'id_estado_pago'  => $this->input->post('id_estado_pago'),
+			);
 
-	 $this->ReservacionModel->insert_Reserv($data);
-	 $this->index();
-	 
-	}	
+			$this->ReservacionModel->insert_Reserv($data);
+			$this->index();
+
+		}	
 		
-redirect('ReservacionController/');
+		redirect('ReservacionController/');
 	}
 
 	public function UpdateReserv(){
@@ -77,6 +77,7 @@ redirect('ReservacionController/');
 		$id = $this->input->post('id');
 		$data = $this->ReservacionModel->Delete($id);
 		echo $data;
+		
 	}
 
 

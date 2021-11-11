@@ -3,13 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DocumentoModel extends CI_Model {
 
+
+
+	public function getDocumento(){
+		 $this->db->join('tbl_cliente','tbl_cliente.id_tipo_documento = tbl_tipo_documento.id_tipo_documento');
+		$query = $this->db->get('tbl_tipo_documento');
+		return $query->result();
+	}
+	
+
+
 	public function getDocumentoAll(){
 
 		$query = $this->db->get('tbl_tipo_documento');
 		return $query->result();
 	}
 	
-
 
 	public function insertDocumento($datos)
 	{

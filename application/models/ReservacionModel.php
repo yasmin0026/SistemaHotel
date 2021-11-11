@@ -3,6 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ReservacionModel extends CI_Model {
 
+
+	
+
+
 	public function allReserv(){
 
 		$this->db->select("id,title,color,start,end,nombre_cliente");
