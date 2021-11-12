@@ -11,7 +11,8 @@ if (isset($actualizar)) {
 	$tipo_documento = '';
 }
 ?>
-
+<br>
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col s12 m3 l3"></div>

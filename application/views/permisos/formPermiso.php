@@ -16,7 +16,8 @@ if (isset($update)) {
 }
 
 ?>
-
+<br>
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col s12 m3 l3"></div>
@@ -38,6 +39,7 @@ if (isset($update)) {
 								<?php endif ?>
 							<?php endforeach; ?>
 						</select>
+
 						<br>
 						<label class="form-label lb">Seleccione el modulo</label>
 						<select name="id_modulo" required>
@@ -50,12 +52,13 @@ if (isset($update)) {
 								<?php endif ?>
 							<?php endforeach; ?> 
 						</select>
-						
+
 					</div>
-				</div>
-				<div class="card-action">
-					<button class="btn waves-effect waves-light btnDynamic" type="submit">Guardar</button>
-					<a href="<?=base_url().'PermisosController/';?>" class="btn red">Mostrar</a>
+				
+					<div class="card-action">
+						<button class="btn waves-effect waves-light btnDynamic" type="submit">Guardar</button>
+						<a href="<?=base_url().'PermisosController/';?>" class="btn red">Mostrar</a>
+					</div>
 				</div>
 			</div>
 		</form>

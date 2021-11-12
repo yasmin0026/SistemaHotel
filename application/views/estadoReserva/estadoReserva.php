@@ -1,10 +1,17 @@
+<style>
+  div.scrollmenu {
 
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+</style>
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col s1"></div>
+    <div class="scrollmenu">
 
-    <div id="man" class="col s9">
+    <div id="man" class="col s9" style="width: 900px">
       <div class="card material-table">
         <div class="table-header">
           <span class="table-title lb">Estados de Reservaciones</span>
@@ -41,5 +48,5 @@
       </div>
     </div>
   </div>
-  
+  </div>
 </div>

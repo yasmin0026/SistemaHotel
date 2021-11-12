@@ -31,6 +31,8 @@ if (isset($actualizar)) {
 		$('.labelActive').addClass('active');
 	});
 </script>
+<br>
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col s12 m1 l1"></div>

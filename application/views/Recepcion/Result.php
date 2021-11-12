@@ -1,11 +1,5 @@
- 
-<style type="text/css">
- 
 
-</style>
-
-
-<table id="datatable">
+<table id="datatable" >
   <tbody class="responsive"> 
    <?php   foreach ($hab as $h):?>
      <tr>      

@@ -4,6 +4,12 @@
 <?php foreach ($allPagina as $p):?>
 
   <style>
+
+    body{
+      background-color: #E2E5E2;
+    }
+
+
    /* Botones normales  */
    .btnDynamic {
      background-color: <?= $p->color_sistema; ?>;
@@ -81,8 +87,7 @@
        <li><a href="<?php echo base_url(); ?>LoginController/inicio">Reserva</a></li>
        <li><a href="<?php echo base_url(); ?>RecepcionController/index">Recepción</a></li>
        <li><a href="<?php echo base_url(); ?>DocumentoController/index">Tipo documento</a></li>
-       <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
-       <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
+       
 
 
 
@@ -111,8 +116,7 @@
    <li><a href="<?php echo base_url(); ?>LoginController/inicio">Reserva</a></li>
    <li><a href="<?php echo base_url(); ?>RecepcionController/index">Recepción</a></li>
    <li><a href="<?php echo base_url(); ?>DocumentoController/index">Tipo documento</a></li>
-   <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
-   <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
+  
 
    
  <?php elseif ($this->session->userdata('id_rol') != '1'): ?>
@@ -188,6 +192,8 @@
    <li><a href="<?php echo base_url(); ?>CategoriasController/">Categorias</a></li>
    <li><a href="<?php echo base_url(); ?>NivelesController/">Ubicación</a></li>
    <li><a href="<?php echo base_url(); ?>ImprevistoController/index">Imprevistos</a></li>
+   <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
+   <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
 
  <?php elseif($this->session->userdata('id_rol') != '1'): ?>
   <?php $menu = $this->PermisosModel->getModulos2($this->session->userdata("id_usuario"));?>
@@ -210,7 +216,8 @@
     <li><a href="<?php echo base_url(); ?>CategoriasController/">Categorias</a></li>
     <li><a href="<?php echo base_url(); ?>NivelesController/">Ubicación</a></li>
     <li><a href="<?php echo base_url(); ?>ImprevistoController/">Imprevistos</a></li>
-
+    <li><a href="<?php echo base_url(); ?>EstadoPagoController/index">Estado pago</a></li>
+    <li><a href="<?php echo base_url(); ?>EstadoReservaController/index">Estado reserva</a></li>
 
   <?php elseif($this->session->userdata('id_rol') != '1'): ?>
     <?php $menu = $this->PermisosModel->getModulos2($this->session->userdata("id_usuario"));?>

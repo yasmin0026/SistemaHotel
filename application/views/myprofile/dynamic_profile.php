@@ -21,6 +21,8 @@ if (isset($actualizar)) {
 </script>
 
 </style>
+<br>
+<br>
 <div class="container">
 
     <div class="row">

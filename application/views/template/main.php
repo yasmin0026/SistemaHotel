@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title><?=$page_title ?></title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-3.4.1.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-colorpicker.min.css">
 
@@ -71,8 +72,9 @@
 	<?php $this->load->view($view,$data_view); ?>
 	<?php $this->load->view('template/footer'); ?>
 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap-colorpicker.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function(){
