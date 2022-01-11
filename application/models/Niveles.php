@@ -4,12 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Niveles extends CI_Model {
 
 
-	public function getNiveles2(){
-        $this->db->join('tbl_habitacion','tbl_habitacion.id_nivel = tbl_niveles.id_nivel');
-        $query = $this->db->get('tbl_niveles');
-        return $query->result();
-    }
+	public function getNiveles2($id_nivel){
+        $this->db->select('tbl_habitacion.id_nivel');
+		$this->db->join('tbl_niveles', 'tbl_niveles.id_nivel = tbl_habitacion.id_nivel');
+		$this->db->where('tbl_habitacion.id_nivel', $id_nivel);
+		$query = $this->db->get('tbl_habitacion');
 
+		if($query->num_rows()==0)
+			return false;
+		else
+			return true;
+    }
+ 
 	public function getNiveles()
 	{
 		$query = $this->db->get('tbl_niveles');

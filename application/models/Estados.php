@@ -4,10 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Estados extends CI_Model{
 
 
-    public function getEstados2(){
-         $this->db->join('tbl_habitacion','tbl_habitacion.id_tipo_estado = tbl_tipo_estado.id_tipo_estado');
-        $query = $this->db->get('tbl_tipo_estado');
-        return $query->result();
+    public function getEstados2($id_tipo_estado){
+        $this->db->select('tbl_habitacion.id_tipo_estado');
+        $this->db->join('tbl_tipo_estado','tbl_tipo_estado.id_tipo_estado = tbl_habitacion.id_tipo_estado');
+        $this->db->where('tbl_habitacion.id_tipo_estado', $id_tipo_estado);
+        $query = $this->db->get('tbl_habitacion');
+        
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
     }
 
     public function getEstados(){

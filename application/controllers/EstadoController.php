@@ -89,13 +89,9 @@ public function updateEstado(){
 }
 
     public function delete($id_tipo_estado){
-        $data = $this->Estados->getEstados2();
-        $info;
-        foreach($data as $d){
-            $info = $d->id_tipo_estado;
-        }
-
-        if ($info == $id_tipo_estado) {
+        $data = $this->Estados->getEstados2($id_tipo_estado);
+      
+        if ($data) {
          $this->session->set_flashdata('delete','¡No se puede eliminar!, una habitación esta usando este estado');
          $this->index();
 
@@ -103,7 +99,7 @@ public function updateEstado(){
         }
 
          $this->Estados->deleteEstado($id_tipo_estado);
-         $this->session->set_flashdata('delete','¡Registro fue borrado!');
+         $this->session->set_flashdata('delete','¡El Registro fue borrado con exito!');
          $this->index();
          redirect('EstadoController/');
     }

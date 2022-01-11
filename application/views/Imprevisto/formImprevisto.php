@@ -5,6 +5,7 @@ if (isset($actualizar)) {
 	$id = '<input type="hidden" name="id_imprevisto" value="' . $this->uri->segment(3) . '">';
 	$tipo_imprevisto = $actualizar->tipo_imprevisto;
 	$id_habitacion = $actualizar->id_habitacion;
+	$fecha_imprevisto = $actualizar->fecha_imprevisto;
 	$descripcion = $actualizar->descripcion;
 	$compensacion = $actualizar->compensacion;
 }else{
@@ -13,6 +14,7 @@ if (isset($actualizar)) {
 	$id = '';
 	$tipo_imprevisto = "";
 	$id_habitacion = "";
+	$fecha_imprevisto = "";
 	$descripcion = "";
 	$compensacion = "";
 }
@@ -42,10 +44,18 @@ if (isset($actualizar)) {
 								<?php if ($action == 'insertImprevisto'): ?>
 									<option required value="<?=$h->id_habitacion;?>"><?=$h->nombre_habitacion;?></option>
 								<?php else: ?>
-		<option required value="<?=$h->id_habitacion?>" <?=$h->id_habitacion == $id_habitacion ? 'selected' : ""; ?>><?=$h->nombre_habitacion; ?></option>
+									<option required value="<?=$h->id_habitacion?>" <?=$h->id_habitacion == $id_habitacion ? 'selected' : ""; ?>><?=$h->nombre_habitacion; ?></option>
 								<?php endif ?>
 							<?php endforeach; ?>
 						</select>
+						<br>
+						
+						<div class="input-field">
+							<input id="fecha_imprevisto" type="date" name="fecha_imprevisto" value="<?=$fecha_imprevisto;?>">
+							<label for="fecha_imprevisto">Fecha de imprevisto</label>
+						</div>
+
+
 						<div class="input-field">
 							<input id="descripcion" type="text" name="descripcion" value="<?=$descripcion;?>">
 							<label for="descripcion">Descripcion</label>
@@ -53,7 +63,7 @@ if (isset($actualizar)) {
 
 						<div class="input-field">
 							<input id="compensacion" type="text" name="compensacion" value="<?=$compensacion;?>">
-							<label for="descripcion">Compensacion</label>
+							<label for="compensacion">Compensacion</label>
 						</div>
 
 					</div>

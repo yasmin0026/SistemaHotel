@@ -30,6 +30,7 @@
                 <th>ID</th>
                 <th>Tipo de Imprevisto</th>
                 <th>Habitación</th>
+                <th>Fecha</th>
                 <th>Descripcion</th>
                 <th>Compensación</th>
                 <th>Acciones</th>
@@ -41,6 +42,7 @@
                   <td><?=$i->id_imprevisto;?></td>
                   <td><?=$i->tipo_imprevisto;?></td>
                   <td><?=$i->nombre_habitacion;?></td>
+                  <td><?=$i->fecha_imprevisto;?></td>
                   <td><?=$i->descripcion;?></td>
                   <td><?=$i->compensacion;?></td>
                   <td>

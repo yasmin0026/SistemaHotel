@@ -38,6 +38,7 @@ class ImprevistoModel extends CI_Model {
 	{	
 		$this->db->set('tipo_imprevisto',$datos['tipo_imprevisto']);
 		$this->db->set('id_habitacion',$datos['id_habitacion']);
+		$this->db->set('fecha_imprevisto',$datos['fecha_imprevisto']);
 		$this->db->set('descripcion',$datos['descripcion']);
 		$this->db->set('compensacion',$datos['compensacion']);
 		$this->db->where('id_imprevisto',$datos['id_imprevisto']);

@@ -8,6 +8,7 @@ class AboutMeController extends CI_Controller {
         $this->load->model('PersonalizarModel');
         $this->load->model('Roles');
 		$this->load->model('Profile');
+		$this->load->model('PermisosModel');
 	}
 
 	public function myProfile($id)

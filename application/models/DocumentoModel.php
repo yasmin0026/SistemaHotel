@@ -5,10 +5,16 @@ class DocumentoModel extends CI_Model {
 
 
 
-	public function getDocumento(){
-		 $this->db->join('tbl_cliente','tbl_cliente.id_tipo_documento = tbl_tipo_documento.id_tipo_documento');
-		$query = $this->db->get('tbl_tipo_documento');
-		return $query->result();
+	public function getDocumento($id_tipo_documento){
+		$this->db->select('tbl_cliente.id_tipo_documento');
+		$this->db->join('tbl_tipo_documento','tbl_tipo_documento.id_tipo_documento = tbl_cliente.id_tipo_documento');
+		$this->db->where('tbl_cliente.id_tipo_documento',$id_tipo_documento);
+		$query = $this->db->get('tbl_cliente');
+		
+		if($query->num_rows()==0)
+			return false;
+		else
+			return true;
 	}
 	
 

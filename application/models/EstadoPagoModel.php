@@ -5,13 +5,18 @@ class EstadoPagoModel extends CI_Model {
 
 
 
-    public function getEstadoPago2(){
-
-        $this->db->join('tbl_reserva','tbl_reserva.id_estado_pago = tbl_estado_pago.id_estado_pago');
-        $this->db->from("tbl_estado_pago");
-        return $this->db->get()->result();
+    public function getEstadoPago2($id_estado_pago){
+        $this->db->select('tbl_reserva.id_estado_pago');
+        $this->db->join('tbl_estado_pago','tbl_estado_pago.id_estado_pago = tbl_reserva.id_estado_pago');
+        $this->db->where('tbl_reserva.id_estado_pago', $id_estado_pago);
+        $query = $this->db->get('tbl_reserva');
+        
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
     }
-
+ 
     public function getEstadoPago(){
         $query = $this->db->get('tbl_estado_pago');
         return $query->result();

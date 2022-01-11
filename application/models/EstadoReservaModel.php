@@ -4,39 +4,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class EstadoReservaModel extends CI_Model {
 
 
-	public function getEstadoReserva(){
-		$this->db->join('tbl_reserva','tbl_reserva.id_estado_reserva = tbl_estado_reserva.id_estado_reserva');
-		$query = $this->db->get('tbl_estado_reserva');
-    return $query->result();
+	public function getEstadoReserva($id_estado_reserva){
+		$this->db->select('tbl_reserva.id_estado_reserva');
+		$this->db->join('tbl_estado_reserva','tbl_estado_reserva.id_estado_reserva = tbl_reserva.id_estado_reserva');
+		$this->db->where('tbl_reserva.id_estado_reserva',$id_estado_reserva);
+		$query = $this->db->get('tbl_reserva');
+		
+		if($query->num_rows()==0)
+			return false;
+		else
+			return true;
 	}
 
-
+	
 	public function getEstadoReserv(){
 		$query = $this->db->get('tbl_estado_reserva');
-    return $query->result();
+		return $query->result();
 	}
 
 	public function insertR($data){
 		$query =$this->db->insert('tbl_estado_reserva',$data);
-    return $query;
+		return $query;
 	}
 
 	public function get($id_estado_reserva){
 		$this->db->select('*');
-    $this->db->from('tbl_estado_reserva');
-    $this->db->where('id_estado_reserva',$id_estado_reserva);
-    $query = $this->db->get();
-    return $query->row();
+		$this->db->from('tbl_estado_reserva');
+		$this->db->where('id_estado_reserva',$id_estado_reserva);
+		$query = $this->db->get();
+		return $query->row();
 	}
 
 
 	public function updateEstadoReserv($data){
-		 $this->db->set('estado_reserva',$data['estado_reserva']);
-    $this->db->where('id_estado_reserva',$data['id_estado_reserva']);
-    if($this->db->update('tbl_estado_reserva'))
-    return true;
-else
-    return false;
+		$this->db->set('estado_reserva',$data['estado_reserva']);
+		$this->db->where('id_estado_reserva',$data['id_estado_reserva']);
+		if($this->db->update('tbl_estado_reserva'))
+			return true;
+		else
+			return false;
 	}
 
 	public function deleteE($id_estado_reserva){

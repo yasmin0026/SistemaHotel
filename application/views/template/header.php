@@ -244,7 +244,7 @@
 
 <ul class="dropdown-content" id="dropdown6">
 
-  <li><a href="<?php echo base_url(); ?>LoginController/index">Mi cuenta</a></li>
+  <li><a href="<?php echo base_url() . 'AboutMeController/myProfile/' . $this->session->userdata('id_usuario'); ?>">Mi cuenta</a></li>
   <li><a href="<?php echo base_url(); ?>LoginController/logout">Cerrar sesión</a></li>
 </ul>
 

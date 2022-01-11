@@ -95,28 +95,24 @@ class RolesController extends CI_Controller {
     }
 
     public function delete($id_rol){
-       $data = $this->Roles->getUsuarios();
-       $info;
-       foreach($data as $d){
-            $info = $d->id_rol;
-        }
+       $usuario = $this->Roles->getUsuarios($id_rol);
+       $permiso = $this->Roles->getPermiso($id_rol);
 
         if($id_rol == 1){
             $this->session->set_flashdata('delete','No se puede eliminar el rol administrador');
 
-        }elseif($info === $id_rol){
+        }elseif($usuario){
            $this->session->set_flashdata('delete','¡No se puede eliminar!, un usuario esta usando este rol');
            $this->index();
-           redirect('RolesController/');
-
+           
         }else{
             $this->Roles->deleteRol($id_rol);
             $this->session->set_flashdata('delete','¡Registro fue borrado!');
             $this->index();
-            redirect('RolesController/');
+         
 
         }
-
+ 
         redirect('RolesController/');
 
     }

@@ -4,11 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Categorias extends CI_Model {
 
 
-	public function getCategorias2(){
-        $this->db->join('tbl_habitacion','tbl_habitacion.id_categoria = tbl_categoria.id_categoria');
-        $query = $this->db->get('tbl_categoria');
-        return $query->result();
-    }
+	public function getCategorias2($id_categoria){
+
+		$this->db->select('tbl_habitacion.id_categoria');
+		$this->db->join('tbl_categoria', 'tbl_categoria.id_categoria = tbl_habitacion.id_categoria');
+		$this->db->where('tbl_habitacion.id_categoria', $id_categoria);
+		$query = $this->db->get('tbl_habitacion');
+
+		if($query->num_rows()==0)
+			return false;
+		else
+			return true;
+	}
 
 	public function getCategorias()
 	{
@@ -23,7 +30,7 @@ class Categorias extends CI_Model {
 		else
 			return false;
 	}
- 
+
 	public function getCategoria($id_categoria)
 	{
 		$this->db->select('*');

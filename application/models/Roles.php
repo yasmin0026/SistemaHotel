@@ -3,13 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Roles extends CI_Model{
 
-    public function getUsuarios(){
+    public function getUsuarios($id_rol){
+        $this->db->select('tbl_usuario.id_rol');
         $this->db->join('tbl_rol','tbl_rol.id_rol = tbl_usuario.id_rol');
+        $this->db->where('tbl_usuario.id_rol', $id_rol);
         $query = $this->db->get('tbl_usuario');
-        return $query->result();
+        
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
     }
 
 
+ 
     public function getRoles()
     {
         $query = $this->db->get('tbl_rol');

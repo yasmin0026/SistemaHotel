@@ -55,6 +55,7 @@ class ImprevistoController extends CI_Controller {
 		$datos = array(
 			'tipo_imprevisto' => $this->input->post('tipo_imprevisto'),
 			'id_habitacion' => $this->input->post('id_habitacion'),
+			'fecha_imprevisto' => $this->input->post('fecha_imprevisto'),
 			'descripcion' => $this->input->post('descripcion'),
 			'compensacion' => $this->input->post('compensacion')
 		);
@@ -91,6 +92,7 @@ class ImprevistoController extends CI_Controller {
 		$datos = array(
 			'tipo_imprevisto' => $this->input->post('tipo_imprevisto'),
 			'id_habitacion' => $this->input->post('id_habitacion'),
+			'fecha_imprevisto' => $this->input->post('fecha_imprevisto'),
 			'descripcion' => $this->input->post('descripcion'),
 			'compensacion' => $this->input->post('compensacion'),
 			'id_imprevisto' => $this->input->post('id_imprevisto')

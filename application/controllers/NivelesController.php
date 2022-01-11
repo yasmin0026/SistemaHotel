@@ -97,16 +97,12 @@ class NivelesController extends CI_Controller {
 
 	public function delete($id_nivel)
 	{	
-		$data = $this->Niveles->getNiveles2();
-		$info;
-		foreach($data as $d){
-			$info = $d->id_nivel;
-		}
-
-		if ($info === $id_nivel) {
+		$data = $this->Niveles->getNiveles2($id_nivel);
+		
+		if ($data) {
 			$this->session->set_flashdata('delete','¡No se puede eliminar!, una habitacion esta usando esta ubicacion');
 			$this->index();
-			redirect('NivelesController/');
+			
 		}else{
 			$this->Niveles->deleteNivel($id_nivel);
 			$this->session->set_flashdata('delete','¡Registro fue borrado!');

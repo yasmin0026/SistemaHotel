@@ -118,6 +118,8 @@ class HabitacionesController extends CI_CONTROLLER{
         }
     }
 
+
+
     public function updateHabitacion(){
         $datos = array(
             'nombre_habitacion' => $this->input->post('nombre_habitacion'),
@@ -136,25 +138,31 @@ class HabitacionesController extends CI_CONTROLLER{
         
     }
 
+
+
+
     public function delete($id_habitacion){
-        $data = $this->Habitaciones->getHabitaciones2();
-        $info;
-        foreach($data as $d){
-            $info = $d->id_habitacion;
-        }
-        
-        if ($info === $id_habitacion) {
-            $this->session->set_flashdata('delete','¡No se puede eliminar!, ¡Un Registro de imprevisto esta usando esta habitacion');
+        $imprevisto = $this->Habitaciones->getHabitaciones2($id_habitacion);
+        $reserva = $this->Habitaciones->getReserva($id_habitacion);
+        $alojamiento = $this->Habitaciones->getAlojamiento($id_habitacion);
+
+        if($imprevisto){
+            $this->session->set_flashdata('delete','¡No se puede eliminar!, ¡Un imprevisto esta usando esta habitacion');
             $this->index();
 
-            redirect('HabitacionesController/');
+        }elseif($reserva) {
+            $this->session->set_flashdata('delete','¡No se puede eliminar!, ¡Una reserva esta usando esta habitacion');
+            $this->index();
+        }elseif($alojamiento) {
+            $this->session->set_flashdata('delete','¡No se puede eliminar!, ¡Recepcion esta usando esta habitacion');
+            $this->index();
         }else{
             $this->Habitaciones->deleteHabitacion($id_habitacion);
-            $this->session->set_flashdata('delete','¡Registro fue borrado!');
+            $this->session->set_flashdata('delete','¡El Registro fue borrado con exito!');
             $this->index();
-
         }
 
+        
         redirect('HabitacionesController/');
     }
 

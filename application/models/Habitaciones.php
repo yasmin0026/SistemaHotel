@@ -3,13 +3,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Habitaciones extends CI_Model{
 
-    public function getHabitaciones2(){
+    public function getHabitaciones2($id_habitacion){
+        $this->db->select('tbl_imprevisto.id_habitacion');
+        $this->db->join('tbl_habitacion','tbl_habitacion.id_habitacion = tbl_imprevisto.id_habitacion');
+        $this->db->where('tbl_imprevisto.id_habitacion',$id_habitacion);
+        $query = $this->db->get('tbl_imprevisto');
         
-        $this->db->join('tbl_imprevisto','tbl_imprevisto.id_habitacion = tbl_habitacion.id_habitacion');
-        $query = $this->db->get('tbl_habitacion');
-        return $query->result();
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
     }
 
+
+    public function getReserva($id_habitacion){
+        $this->db->select('tbl_reserva.id_habitacion');
+        $this->db->join('tbl_habitacion','tbl_habitacion.id_habitacion = tbl_reserva.id_habitacion');
+        $this->db->where('tbl_reserva.id_habitacion',$id_habitacion);
+        $query = $this->db->get('tbl_reserva');
+        
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
+    }
+
+
+    public function getAlojamiento($id_habitacion){
+        $this->db->select('tbl_alojamiento.id_habitacion');
+        $this->db->join('tbl_habitacion','tbl_habitacion.id_habitacion = tbl_alojamiento.id_habitacion');
+        $this->db->where('tbl_alojamiento.id_habitacion',$id_habitacion);
+        $query = $this->db->get('tbl_alojamiento');
+        
+        if($query->num_rows()==0)
+            return false;
+        else
+            return true;
+    }
+
+ 
     public function getHabitaciones(){
         $this->db->join('tbl_categoria','tbl_categoria.id_categoria = tbl_habitacion.id_categoria');
         $this->db->join('tbl_niveles','tbl_niveles.id_nivel = tbl_habitacion.id_nivel');
@@ -17,7 +49,7 @@ class Habitaciones extends CI_Model{
         $query = $this->db->get('tbl_habitacion');
         return $query->result();
     }
-
+ 
     public function insertHabitacion($datos){
         if($this->db->insert('tbl_habitacion',$datos))
             return true;
