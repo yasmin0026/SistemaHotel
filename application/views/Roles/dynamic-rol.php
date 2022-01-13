@@ -40,15 +40,15 @@ if (isset($actualizar)) {
 							<select name="crear" class="form-select" require>
 								<option>Seleccionar</option>
 								<?php if ($action == 'insertRol') : ?>
-									<option value="SI">SI</option>
-									<option value="NO">NO</option>
+									<option value="si">si</option>
+									<option value="no">no</option>
 								<?php else : ?>
-									<?php if ($crear == "SI") : ?>
-										<option value="SI" selected>SI</option>
-										<option value="NO">NO</option>
+									<?php if ($crear == "si") : ?>
+										<option value="si" selected>si</option>
+										<option value="no">no</option>
 									<?php else : ?>
-										<option value="NO" selected>NO</option>
-										<option value="SI">SI</option>
+										<option value="no" selected>no</option>
+										<option value="si">si</option>
 									<?php endif; ?>
 								<?php endif ?>
 							</select>
@@ -59,15 +59,15 @@ if (isset($actualizar)) {
 							<select name="actualizar" class="form-select" require>
 								<option>Seleccionar</option>
 								<?php if ($action == 'insertRol') : ?>
-									<option value="SI">SI</option>
-									<option value="NO">NO</option>
+									<option value="si">si</option>
+									<option value="no">no</option>
 								<?php else : ?>
-									<?php if ($editar == "SI") : ?>
-										<option value="SI" selected>SI</option>
-										<option value="NO">NO</option>
+									<?php if ($editar == "si") : ?>
+										<option value="si" selected>si</option>
+										<option value="no">no</option>
 									<?php else : ?>
-										<option value="NO" selected>NO</option>
-										<option value="SI">SI</option>
+										<option value="no" selected>no</option>
+										<option value="si">si</option>
 									<?php endif; ?>
 								<?php endif ?>
 							</select>
@@ -78,15 +78,15 @@ if (isset($actualizar)) {
 							<select name="eliminar" class="form-select" require>
 								<option>Seleccionar</option>
 								<?php if ($action == 'insertRol') : ?>
-									<option value="SI">SI</option>
-									<option value="NO">NO</option>
+									<option value="si">si</option>
+									<option value="no">no</option>
 								<?php else : ?>
-									<?php if ($eliminar == "SI") : ?>
-										<option value="SI" selected>SI</option>
-										<option value="NO">NO</option>
+									<?php if ($eliminar == "si") : ?>
+										<option value="si" selected>si</option>
+										<option value="no">no</option>
 									<?php else : ?>
-										<option value="NO" selected>NO</option>
-										<option value="SI">SI</option>
+										<option value="no" selected>no</option>
+										<option value="si">si</option>
 									<?php endif; ?>
 								<?php endif ?>
 							</select>
