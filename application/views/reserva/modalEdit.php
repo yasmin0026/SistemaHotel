@@ -5,7 +5,7 @@
       <!-- Formulario-->    
 
       <div class="row">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="<?php echo base_url() ?>ReservacionController/UpdateReservacion">
 
           <div class="row">
             <div class="input-field col s12">
@@ -116,15 +116,53 @@
               <label for="id_estado_pago">Estado de pago</label>
             </div>
           </div>
-        </form>
+       
      </div>
-      <!-- Fin Formulario-->
+      
     </div>
     <div class="modal-footer">
-      <input type="submit" name="enviar" value="Actualizar" class="modal-close waves-effect waves-green btn-flat">
+      <button id="btnUpdate"  class="modal-close waves-effect waves-green btn-flat">Actualizar</button>
        <input type="submit" name="enviar" value="Cancelar" class="modal-close waves-effect waves-green btn-flat">
     </div>
-
-    
+ </form>
+    <!-- Fin Formulario-->
 
   </div>
+  <script type="text/javascript">
+
+    $('#btnUpdate').click(function(){
+
+      var id = $('#txtid').val();
+      var id_habitacion = $('#txid_habitacion').val();
+      var title = $('#txttitle').val();
+      var color = $('#txcolor').val();
+      var start = $('#txstart').val(event.start.format());
+      var end = $('#txend').val(event.end.format());
+      var id_estado_reserva = $('#txid_estado_reserva').val();
+      var nombre_cliente = $('#txnombre_cliente').val();
+      var id_estado_pago = $('#txid_estado_pago').val(); 
+
+       $.post("<?php echo base_url(); ?>ReservacionController/UpdateReservacion",
+      {
+        id:id,
+        id_habitacion:id_habitacion,
+         title:title,
+         color:color,
+         start:start,
+         end:end,
+         id_estado_reserva:id_estado_reserva,
+         nombre_cliente:nombre_cliente,
+         id_estado_pago:id_estado_pago
+      },
+
+      function(data){
+        
+           if (data == 1) {
+          alert('fechas actualizadas correctamente');
+        }
+      });
+
+    }) ;
+    
+
+  </script>

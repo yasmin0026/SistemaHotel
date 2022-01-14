@@ -64,6 +64,7 @@ class ReservacionController extends CI_Controller {
 		redirect('ReservacionController/');
 	}
 
+	//Actualiza las fechas de la reservacion arrastrando
 	public function UpdateReserv(){
 		$param['id']=$this->input->post('id');
 		$param['start']=$this->input->post('start');
@@ -78,6 +79,24 @@ class ReservacionController extends CI_Controller {
 		$data = $this->ReservacionModel->Delete($id);
 		echo $data;
 		
+	}
+//Actualiza toda la informacion de la reservacion
+		public function UpdateReservacion(){
+		
+		$param['id']=$this->input->post('id');
+		$param['id_habitacion']=$this->input->post('id_habitacion');
+		$param['title']=$this->input->post('title');
+		$param['color']=$this->input->post('color');
+		$param['start']=$this->input->post('start');
+		$param['end']=$this->input->post('end');
+		$param['id_estado_reserva']=$this->input->post('id_estado_reserva');
+		$param['nombre_cliente']=$this->input->post('nombre_cliente');
+		$param['id_estado_pago']=$this->input->post('id_estado_pago');
+
+		$data = $this->ReservacionModel->UpdateData($param);
+		
+		 $this->index();
+		 redirect('ReservacionController/');
 	}
 
 

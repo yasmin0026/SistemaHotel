@@ -151,8 +151,9 @@
       var id_habitacion = $('#txid_habitacion').val();
       var title = $('#txttitle').val(event.title);
       var color = $('#txcolor').val(event.color);
-      var start = $('input[name=start').val(event.start.format('DD-MM-YYYYThh:mm:ss'));
-      var end = $('input[name=end').val(event.end.format('DD-MM-YYYYThh:mm:ss'));
+      var color = $('#txcolor').val(event.color);
+      var starts = $('input[name=start').val(event.start.format('YYYY-MM-DD'));
+      var ends = $('input[name=end').val(event.end.format('YYYY-MM-DD'));
      // var id_estado_reserva = $('#txid_estado_reserva').val(event.extraParams.id_estado_reserva);
      //var nombre_cliente = $('input[name=nombre_cliente').val(info.event.extendedProps.nombre_cliente);
      // var id_estado_pago = $('#txid_estado_pago').val(); 

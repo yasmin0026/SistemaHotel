@@ -25,7 +25,7 @@
         <div class="row">
           <div class="input-field col s12">
             <input id="txttitulo" name="title" type="text" class="validate" required="Debe ingresar datos">
-            <label for="last_name">Titulo de Reservacion</label>
+            <label for="last_name">Encargado de Reservacion</label>
           </div>
         </div>
         <div class="row">
@@ -64,16 +64,16 @@
           <div class="row">
             <div class="input-field col s6">
 
-              <label for="txtstart">Fecha y Hora de inicio</label>
+              <label for="txtstart">Fecha de inicio</label>
               <br>
-              <input id="txtstart" name="start" type="datetime-local">
+              <input id="txtstart" name="start" type="date">
             </div>
             
             
             <div class="input-field col s6">
-             <label >Fecha y Hora de finalizacion</label>
+             <label >Fecha de finalizacion</label>
              <br>
-             <input id="txtend" name="end" type="datetime-local" >
+             <input id="txtend" name="end" type="date" >
              
            </div>
          </div>
