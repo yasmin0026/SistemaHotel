@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize.css">
 	<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-3.4.1.min.js"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-colorpicker.min.css">
 
 	<!-- Datatable css -->
@@ -23,6 +23,44 @@
 	<!-- idioma español -->
 	<script src='<?php echo base_url(); ?>assets/plugins/fullcalendar-3.10.4/locale/es.js'></script>
 
+	<style type="text/css">
+		@font-face {
+			font-family: 'Material Icons';
+			font-style: normal;
+			font-weight: 400;
+			src: url(<?=base_url().'assets/iconos/font/MaterialIcons-Regular.ttf';?>); /* For IE6-8 */
+			src: local('Material Icons'),
+			local(<?=base_url().'assets/iconos/font/MaterialIcons-Regular.ttf';?>),
+			url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+			url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+			url(<?=base_url().'assets/iconos/font/MaterialIcons-Regular.ttf';?>) format('truetype');
+		}
+
+		.material-icons {
+			font-family: 'Material Icons';
+			font-weight: normal;
+			font-style: normal;
+			font-size: 24px;  /* Preferred icon size */
+			display: inline-block;
+			line-height: 1;
+			text-transform: none;
+			letter-spacing: normal;
+			word-wrap: normal;
+			white-space: nowrap;
+			direction: ltr;
+
+			/* Support for all WebKit browsers. */
+			-webkit-font-smoothing: antialiased;
+			/* Support for Safari and Chrome. */
+			text-rendering: optimizeLegibility;
+
+			/* Support for Firefox. */
+			-moz-osx-font-smoothing: grayscale;
+
+			/* Support for IE. */
+			font-feature-settings: 'liga';
+		}
+	</style>
 </head>
 <body>
 	<style type="text/css">
@@ -73,14 +111,14 @@
 	<?php $this->load->view('template/footer'); ?>
 
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/bootstrap-colorpicker.min.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function(){
-			M.AutoInit();
-		});
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/bootstrap-colorpicker.min.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function(){
+				M.AutoInit();
+			});
 
-	</script>
-</body>
-</html>
+		</script>
+	</body>
+	</html>
