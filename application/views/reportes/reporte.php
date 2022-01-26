@@ -115,9 +115,9 @@ function pascua ($anno){
             <center>
               <h6>Seleccione el periodo</h6>
               <select id="periodos" name="periodos" required>
-                <option>Periodo</option>
+                <option>seleccione una opción</option>
                 <option value="saint">Semana santa</option>
-                <option value="days">por días</option>
+                <option value="days">por rango de días</option>
                 <!-- <option value="weeks">Semanas</option> -->
               </select>
 

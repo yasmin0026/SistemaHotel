@@ -27,6 +27,15 @@ class RoomModel extends CI_Model {
 		return  $query->result();
 
 	}
+
+	public function habitacion($id_habitacion)
+	{
+		$this->db->select('nombre_habitacion');
+        $this->db->from('tbl_habitacion');
+        $this->db->where('id_habitacion',$id_habitacion);
+        $query = $this->db->get();
+        return $query->row();
+	}
 	
 
 	
