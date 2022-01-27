@@ -29,36 +29,28 @@
 
       <h3 align="center">Detalle Cliente Frecuente</h3>
 
-    	<div class="scrollmenu">
-        <div id="man">
-          <div class="card material-table">
-            <table id="" class="responsive">
-              <thead>
-                <tr>
-                  <th>Nombre Cliente</th>
-                  <th>Alojamientos Mensual</th>
-                  <th>Mes Inicio</th>
-                  <th>Mes Salida</th>
-                  <th>Dias Hospedados</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($detalle as $f): ?>
-                  <tr>
-                    <td><?=$f->nombres_cliente;?></td>
-                    <td><?=$f->AlojamientosMesual;?></td>
-                    <td><?=$f->MesInicio;?></td>
-                    <td><?=$f->MesFinal;?></td>
-                    <td><?=$f->DiasHospedados;?></td>
-                   
-                  </tr>
-                <?php endforeach ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
+      <table class="striped grey lighten-1">
+        <thead>
+          <tr>
+            <th class="grey darken-3" style="text-align: center; color:white;">Nombre Cliente</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Alojamientos Mensual</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Mes Inicio</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Mes Salida</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Dias Hospedados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($detalle as $f): ?>
+              <tr>
+                <td style="text-align: center;"><?=$f->nombres_cliente;?></td>
+                <td style="text-align: center;"><?=$f->AlojamientosMesual;?></td>
+                <td style="text-align: center;"><?=$f->MesInicio;?></td>
+                <td style="text-align: center;"><?=$f->MesFinal;?></td>
+                <td style="text-align: center;"><?=$f->DiasHospedados;?></td>
+              </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>

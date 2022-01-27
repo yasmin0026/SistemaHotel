@@ -29,35 +29,31 @@
 
       <h3 align="center">Meses Con Menos Alojamientos</h3>
 
-    	<div class="scrollmenu">
-      <div id="man">
-        <div class="card material-table">
-          <table id="" class="responsive">
-            <thead>
-              <tr>
-                <th>Meses</th>
-                <th># Dias del mes</th>
-                <th># Dias totales hospedado</th>
-                <th># Dias totales no hospedado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($detalle as $vacios): ?>
-                <tr>
-                  <td><?=$vacios->Mes;?></td>
-                  <td><?=$vacios->DiasDelMes;?></td>
-                  <td><?=$vacios->DiasHospedados;?></td>
-                  <td><?=$vacios->DiasNoHospedados;?></td>
-                </tr>
-              <?php endforeach ?>
-            </tbody>
-          </table>
+    	<table class="striped grey lighten-1">
+        <thead>
+          <tr>
+            <th class="grey darken-3" style="text-align: center; color:white;">Meses</th>
+            <th class="grey darken-3" style="text-align: center; color:white;"># Dias del mes</th>
+            <th class="grey darken-3" style="text-align: center; color:white;"># Dias totales hospedado</th>
+            <th class="grey darken-3" style="text-align: center; color:white;"># Dias totales no hospedado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($detalle as $vacios) : ?>
+            <tr>
+              <td style="text-align: center;"><?=$vacios->Mes;?></td>
+              <td style="text-align: center;"><?=$vacios->DiasDelMes;?></td>
+              <td style="text-align: center;"><?=$vacios->DiasHospedados;?></td>
+              <td style="text-align: center;"><?=$vacios->DiasNoHospedados;?></td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
         </div>
       </div>
-    </div>
-
-    </div>
-  </div>
+    
 </body>
 </html>
+
+
 

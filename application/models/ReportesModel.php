@@ -20,8 +20,8 @@ class ReportesModel extends CI_Model {
 
 		$this->db->select('c.nombres_cliente,
 			count(c.nombres_cliente) as AlojamientosMesual,
-			MONTHNAME(a.fecha_entrada) as MesInicio,
-			MONTHNAME(a.fecha_salida) as MesFinal ,
+			ELT(MONTH(a.fecha_entrada), "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre") as MesInicio,
+			ELT(MONTH(a.fecha_salida), "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre") as MesFinal,
 			SUM(timestampdiff(DAY, a.fecha_entrada, a.fecha_salida)) as DiasHospedados');
 		$this->db->from('tbl_alojamiento a');
 		$this->db->join('tbl_cliente c', 'a.id_cliente = c.id_cliente');

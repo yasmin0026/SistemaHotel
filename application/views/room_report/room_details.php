@@ -25,7 +25,7 @@
     </form>
     </div>
     <div class="col s6 m6 l6">
-    <a href="<?= base_url()?>ReportesController/index/" class="btn btn red">Regresar a reporteria<i class="right material-icons">reply</i></a>
+    <a href="<?= base_url()?>ReportesController/index/" class="btn btn btnDynamic">Regresar a reporteria<i class="right material-icons">reply</i></a>
     </div>
   </div>
   <div class="row ">

@@ -36,14 +36,14 @@
 
       <br>
 
-      <table class="striped deep-purple lighten-5">
+      <table class="striped grey lighten-1">
         <thead>
           <tr>
-            <th class="deep-purple accent-4" style="text-align: center; color:white;">Nombre habitación</th>
-            <th class="deep-purple accent-4" style="text-align: center; color:white;">Documento</th>
-            <th class="deep-purple accent-4" style="text-align: center; color:white;">Nombre</th>
-            <th class="deep-purple accent-4" style="text-align: center; color:white;">Entrada</th>
-            <th class="deep-purple accent-4" style="text-align: center; color:white;">Salida</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Nombre habitación</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Documento</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Nombre</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Entrada</th>
+            <th class="grey darken-3" style="text-align: center; color:white;">Salida</th>
           </tr>
         </thead>
         <tbody>

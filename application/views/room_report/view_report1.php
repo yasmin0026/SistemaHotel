@@ -44,11 +44,11 @@
       <div class="scrollmenu">
         <div id="man">
           <div class="card">
-            <table id="" class="teal lighten-5">
+            <table id="" class="striped grey lighten-1">
               <thead>
                 <tr>
-                  <th class="teal accent-4" style="text-align: center;">Nombre de la habitacion</th>
-                  <th class="teal accent-4" style="text-align: center;">Fecuencia (Veces)</th>
+                  <th class="grey darken-3" style="text-align: center;">Nombre de la habitacion</th>
+                  <th class="grey darken-3" style="text-align: center;">Fecuencia (Veces)</th>
                 </tr>
               </thead>
               <tbody>
