@@ -16,9 +16,11 @@ class ReservacionModel extends CI_Model {
 
 	//selects 
 	public function selecHab(){
-
-		$data = $this->db->get('tbl_habitacion');
+		$id=1;
+		$data= $this->db->get_where('tbl_habitacion',array('id_tipo_estado'=>$id));
 		return $data->Result(); 
+
+
 	}
 
 	public function selecPago(){
