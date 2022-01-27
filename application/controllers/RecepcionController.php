@@ -54,7 +54,7 @@ class RecepcionController extends CI_Controller {
 			$allPagina =$this->PersonalizarModel->getPersonal();
 			$data['allPagina'] = $allPagina;
 
-			
+		
 			$data['h'] = $this->RecepcionModel->getAll($id_habitacion);
 
 			$data['tipoh'] = $this->RecepcionModel->selectTipo();
@@ -86,7 +86,7 @@ class RecepcionController extends CI_Controller {
 		if ($data) {
 			$this->index();
 			$this->session->set_flashdata('insert','¡Alojamiento realizado con exito!');
-			redirect('RecepcionController/');
+			redirect('RecepcionController/AlojamientoView');
 		}else{
 			echo "fallo algo revise";
 		}
@@ -111,6 +111,82 @@ class RecepcionController extends CI_Controller {
 		$this->load->view('Recepcion/Result.php',$data);
 		
 	}
+
+	public function AlojamientoView(){
+		if ($this->session->userdata('is_logued_in') === TRUE) {
+
+			$data = array(
+				'page_title' => 'Sistema Hotelero',
+				'view' => 'Recepcion/Alojamiento.php',
+				'data_view' => array()
+			);
+
+			
+
+			$allPagina =$this->PersonalizarModel->getPersonal();
+			$data['allPagina'] = $allPagina;
+
+			$data['alojamiento'] = $this->RecepcionModel->getAlojamiento2();
+			
+
+			$this->load->view('template/main',$data);
+		}else{
+			$this->load->view('login');
+		}
+	}
+
+	public function deleteAlojamiento($id_alojamiento){
+		$this->RecepcionModel->deleteAlojamientos($id_alojamiento);
+		$this->session->set_flashdata('delete','¡Registro fue borrado!');
+		$this->index();
+		redirect('RecepcionController/AlojamientoView');
+
+	}
+
+	public function ViewEdit($id_alojamiento){
+		if ($this->session->userdata('is_logued_in') === TRUE) {
+
+			$data = array(
+				'page_title' => 'Sistema Hotelero',
+				'view' => 'Recepcion/formAlojamiento.php',
+				'data_view' => array()
+			);
+
+			
+
+			$allPagina =$this->PersonalizarModel->getPersonal();
+			$data['allPagina'] = $allPagina;
+
+			$data['al'] =$this->RecepcionModel->editAlojamiento($id_alojamiento);
+			 
+
+			$data['hab'] = $this->RecepcionModel->selectHab();
+			$data['client'] = $this->RecepcionModel->selectClient();
+			
+
+			$this->load->view('template/main',$data);
+		}else{
+			$this->load->view('login');
+		}
+	}
+
+
+	public function updateAlojamiento(){
+    $datos = array(
+        'id_alojamiento'  => $this->input->post('id_alojamiento'),
+        'id_cliente' => $this->input->post('id_cliente'),
+        'id_habitacion' => $this->input->post('id_habitacion'),
+        'tarifa' => $this->input->post('tarifa'),
+        'fecha_entrada' => $this->input->post('fecha_entrada'),
+        'fecha_salida' => $this->input->post('fecha_salida'),
+        'precio_alojamiento' => $this->input->post('precio_alojamiento')
+
+    );
+
+    $this->RecepcionModel->editar($datos);
+    $this->session->set_flashdata('update','¡Registro modificado con exito! '.$datos['id_cliente']);
+    redirect('RecepcionController/AlojamientoView');
+}
 
 
 }

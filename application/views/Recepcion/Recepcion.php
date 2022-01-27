@@ -6,7 +6,12 @@
     white-space: nowrap;
   }
 
+  a.disabled { 
+    pointer-events: none; 
+    cursor: default; 
+ }
 </style>
+
 
 <br><br>
 <div class="container">
@@ -16,14 +21,14 @@
       <div id="man" style="width: 980px">
         <div class="card material-table">
           <div class="table-header" style="height: 100px;">
-            <span class="table-title">Recepcion</span>
+            <span class="table-title lb"><a href="<?=base_url().'RecepcionController/';?>">Recepcion/</a><a href="<?=base_url().'RecepcionController/AlojamientoView';?>">Alojamientos</a> </span>
             <!-- Acciones -->
             <div class="actions">
               <!--Select para filtrar datos -->
               <form class="" id="formFiltro">
                 <select id="selectFiltro" name="id_nivel">
 
-                  <option>Filtrar por Nivel</option>
+                  <option>Filtrar por Habitacion</option>
                   <option value="0">Mostrar Todo</option>
 
                   <?php foreach ($niv as $n) : ?>
