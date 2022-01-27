@@ -47,6 +47,31 @@ class ReportesModel extends CI_Model {
 		return  $query->result();
 
 	}
+
+
+		public function DiasVacios($year){
+
+		$query = $this->db->query("select concat(p.mes,'/','2022') as Mes,
+			day(last_day(cast(CONCAT('2022-',p.mes2,'-',01) as date))) as DiasDelMes,
+			ifnull(SUM(timestampdiff(DAY, v.fecha_entrada, v.fecha_salida)), 0) as DiasHospedados,
+			(day(last_day(cast(CONCAT('2022-',p.mes2,'-',01) as date))) - ifnull(SUM(timestampdiff(DAY, v.fecha_entrada, v.fecha_salida)), 0)) as DiasNoHospedados
+
+			from (select 'Enero' as mes, 1 as mes2 union select 'Febrero', 2  union select'Marzo', 3  union select 'Abril', 4  union select 'Mayo', 5  union 
+			select 'Junio', 6  union select 'Julio', 7  union select 'Agosto', 8  union select 'Septiembre', 9  union select 'Octubre', 10  union 
+            select 'Noviembre', 11  union select 'Diciembre', 12 ) P
+
+            left join tbl_alojamiento v
+            
+            on MONTH(v.fecha_entrada) = p.mes2
+            and YEAR(v.fecha_entrada) = 2022
+
+       		group by p.mes
+       		order by DiasNoHospedados DESC;");
+		
+		return $query->result();
+
+	}
+
 	
 
 	

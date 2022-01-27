@@ -102,14 +102,13 @@ function pascua ($anno){
       <div class="card" style="padding: 10px; height: auto; border-radius: 15px">
         <div class="card-image">
           <br>
-          <center> <img src="https://cdn-icons-png.flaticon.com/512/90/90417.png" style="width: 150px; height: auto;"> </center>
+          <center> <img src="https://i.pinimg.com/originals/fd/7e/bb/fd7ebb6fb82af55351740321b9175679.png" style="width: 150px; height: auto;"> </center>
         </div>
         <br>
-        <center> <span class="card-title" style="color: black;">Habitaciones mas alquiladas</span> </center>
+        <center> <span class="card-title" style="color: black;">Habitaciones Mas Alquiladas</span> </center>
         <div class="card-content">
           <p>Habitaciones que mas se alquilan  y en que periodos.</p>
         </div>
-        <br><br>
         <div class="card-action">
           <form action="<?=base_url().'RoomReports/';?>" method="POST">
             <center>
@@ -124,7 +123,7 @@ function pascua ($anno){
               <input type="text" name="inicio" id="inicio" class="datepicker" placeholder="Fecha desde" required>
               <input type="text" name="fin" id="fin" class="datepicker" placeholder="Fecha hasta" required>
               <br>
-              <button type="submit" class="btn btn-pink">Enviar</button>
+              <button type="submit" class="btn btn btnDynamic">Enviar</button>
             </center>
           </form>
         </div>
@@ -132,26 +131,36 @@ function pascua ($anno){
     </div>
 
     <div class="col s12 m4">
-      <div class="card" style="padding: 10px; height: 550px; border-radius: 15px">
-        <div class="card-image">
-          <br>
-          <center> <img src="https://cdn-icons-png.flaticon.com/512/90/90417.png" style="width: 150px; height: auto;"> </center>
+          <div class="card" style="padding: 10px; height: 615px; border-radius: 15px">
+            <div class="card-image">
+              <br>
+              <center> <img src="https://img.icons8.com/ios/500/calendar-minus.png" style="width: 150px; height: auto;"> </center>
+            </div>
+            <br>
+              <center> <span class="card-title" style="color: black;">Fechas Menos Concurridas</span> </center>
+            <div class="card-content">
+              <p>Verificar que meses del año seleccionado han tenido menos alojamientos en el Hotel.</p>
+            </div>
+            <br>
+            <br>
+            <div class="card-action">
+              <form style="padding: 8px" action="<?= base_url()?>ReportesController/FechasMasVacio" method="POST">
+                <center>
+                  <h6>Seleccione el año</h6>
+                  <select name="selectYear" required="">
+                    <?php foreach ($YR as $y): ?>
+                      <option value="<?php echo $y->fecha ;?>"><?php echo $y->fecha ;?> </option>
+                    <?php endforeach; ?>
+                  </select>
+                </center>
+                <center><input type="submit" name="enviar" class="btn btn btnDynamic"></center>
+              </form>
+            </div>
+          </div>
         </div>
-        <br>
-        <center> <span class="card-title" style="color: black;">Tipo De Reporte 2</span> </center>
-        <div class="card-content">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </div>
-        <br><br>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
 
     <div class="col s12 m4">
-      <div class="card" style="padding: 10px; height: 550px; border-radius: 15px">
+      <div class="card" style="padding: 10px; height: 615px; border-radius: 15px">
         <div class="card-image">
           <br>
           <center> <img src="https://cdn-icons-png.flaticon.com/512/115/115801.png" style="width: 150px; height: auto;"> </center>
@@ -161,6 +170,8 @@ function pascua ($anno){
         <div class="card-content">
           <p>Los clientes que más reservaciones a hecho en el hotel en un año natural.</p>
         </div>
+        <br>
+        <br>
         <div class="card-action">
           <form style="padding: 8px" action="<?= base_url()?>ReportesController/clienteFrecuente" method="POST">
             <center>
@@ -171,7 +182,7 @@ function pascua ($anno){
                 <?php endforeach; ?>
               </select>
             </center>
-            <center><input type="submit" name="enviar" class="btn btn-succes"></center>
+            <center><input type="submit" name="enviar" class="btn btn btnDynamic"></center>
           </form>
         </div>
       </div>

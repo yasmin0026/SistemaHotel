@@ -125,6 +125,69 @@ class ReportesController extends CI_Controller {
 		}
 	}
 
+	public function FechasMasVacio()
+	{
+		if ($this->session->userdata('is_logued_in') === TRUE) {	
+			$data = array(
+					'page_title' => 'Fechas Mas Vacias',
+					'view' => 'reportes/FechasMasVacias',
+					'data_view' => array()
+				);
+
+			//El year del reporte
+			$year = $this->input->post('selectYear');
+			
+
+			$vacios = $this->ReportesModel->DiasVacios($year);
+			$data['vacios'] = $vacios;
+
+			$data['year'] = $year;
+
+			$allPagina =$this->PersonalizarModel->getPersonal();
+			$data['allPagina'] = $allPagina;
+
+			$this->load->view('template/main',$data);
+		}else{
+			$this->load->view('login');
+		}
+	}
+
+	public function reporteDiasVacio()
+	{
+		if ($this->session->userdata('is_logued_in') === TRUE) {	
+
+			ob_start();
+
+			$data = array(
+				'page_title' => 'Sistema Hotelero',
+				'view' => 'reportes/VistaFechasVacio',
+				'data_view' => array()
+			);
+
+			$allPagina =$this->PersonalizarModel->getPersonal();
+			$data['allPagina'] = $allPagina;
+
+			$anio = $this->input->post('anio');
+
+
+			$detalle = $this->ReportesModel->DiasVacios($anio);
+			$data['detalle'] = $detalle;
+
+			$data['year'] = $anio;
+
+			$this->load->view('reportes/VistaFechasVacio',$data);
+
+			$this->pdf->setPaper ($paper_size);
+			$this->pdf->setPaper('B4');
+			$this->pdf->loadhtml(ob_get_clean());
+			$this->pdf->render();
+			$this->pdf->stream("reporte", array("Attachment"=>0));
+
+			
+		}else{
+			$this->load->view('login');
+		}
+	}
 
 
 //EJEMPLO DE REPORTE
@@ -149,6 +212,7 @@ class ReportesController extends CI_Controller {
 
 */
 	
+
 
 
 

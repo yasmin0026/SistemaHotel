@@ -17,7 +17,7 @@
     <form action="<?= base_url()?>ReportesController/clienteFrecuente/" method="post">
       <input type="hidden" name="selectYear" value="2022">
       <center>
-        <input type="submit" name="regresar" value="Regresar" class="btn btn-info">
+        <input type="submit" name="regresar" value="Regresar" class="btn btn btnDynamic">
       </center>
     </form>
     <br>
@@ -28,7 +28,7 @@
       <input type="hidden" name="nombre" value="<?=$f->nombres_cliente;?>">
       <input type="hidden" name="anio" value="<?php echo $year; ?>">
       <center>
-        <input type="submit" name="Reporte" value="Generar reporte" class="btn btn-warning">
+        <input type="submit" name="Reporte" value="Generar reporte" class="btn btn btnDynamic">
       </center>
     </form>
     <br>

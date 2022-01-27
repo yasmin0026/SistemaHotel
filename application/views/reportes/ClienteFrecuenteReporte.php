@@ -16,7 +16,7 @@
 
   	<h4 align="center">Cliente Mas Frecuente Del Año <?php echo $year;?></h4>
     <center>
-      <a href="<?= base_url()?>ReportesController/index/"><button class="btn btn-info">Regresar</button></a>
+      <a href="<?= base_url()?>ReportesController/index/"><button class="btn btn btnDynamic">Regresar</button></a>
     </center>
 
   	<div class="scrollmenu">
@@ -41,7 +41,7 @@
                     <form action="<?=base_url().'ReportesController/DetalleClienteFrecuente'?>" method="POST">
                       <input type="hidden" name="nombre" value="<?= $f->nombres_cliente;?>">
                       <input type="hidden" name="anio" value="<?php echo $year; ?>">
-                      <input type="submit" name="enviar" value="Ver detalles" class="btn btn-info">
+                      <input type="submit" name="enviar" value="Ver detalles" class="btn btn btnDynamic">
                     </form>
                 </td>
                 </tr>
